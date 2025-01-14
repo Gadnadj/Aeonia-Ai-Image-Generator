@@ -3,7 +3,9 @@ import { AppContextProviderProps } from '../types';
 
 export const AppContext = createContext({
     user: false,
-    setUser: (user: boolean) => { }
+    setUser: (user: boolean) => { },
+    showLogin: false,
+    setShowLogin: (showLogin: boolean) => { }
 });
 
 const AppContextProvider = (props: AppContextProviderProps) => {

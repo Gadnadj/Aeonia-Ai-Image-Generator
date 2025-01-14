@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { assets } from '../assets/assets';
+import { AppContext } from '../context/AppContext';
 
 
 const Login = () => {
 
     const [state, setState] = useState<string>('Login');
+    const { setShowLogin } = useContext(AppContext);
 
     useEffect(() => {
         document.body.style.overflow = 'hidden';
@@ -77,6 +79,7 @@ const Login = () => {
                     </p>}
 
                 <img
+                    onClick={() => setShowLogin(false)}
                     className='absolute top-5 right-5 cursor-pointer'
                     src={assets.cross_icon} />
 

@@ -5,13 +5,17 @@ import BuyCredit from './pages/BuyCredit';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Login from './components/Login';
+import { useContext } from 'react';
+import { AppContext } from './context/AppContext';
 
 function App() {
+
+  const { showLogin } = useContext(AppContext);
 
   return (
     <div className='min-h-screen bg-gradient-to-b from-teal-50 to-orange-200'>
       <NavBar />
-      <Login />
+      {showLogin && <Login />}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/result' element={<Result />} />
