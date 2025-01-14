@@ -31,7 +31,7 @@ const Header = (props: Props) => {
 
             <div className='flex flex-wrap justify-center mt-8 gap-3'>
                 {Array(6).fill('').map((item, index) => (
-                    <img className='rounded hover:scale-105 transition-all duration-300 cursor-pointer max-sm:w-10 lg:size-[120px]'
+                    <img className='rounded hover:scale-105 transition-all duration-300 cursor-pointer max-sm:w-10 xl:size-[120px]'
                         src={index % 2 === 0 ? assets.sample_img_2 : assets.sample_img_1}
                         alt="" key={index} width={70} />
                 ))}
