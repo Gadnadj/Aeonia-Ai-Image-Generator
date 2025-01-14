@@ -8,10 +8,14 @@ export const AppContext = createContext({
 
 const AppContextProvider = (props: AppContextProviderProps) => {
     const [user, setUser] = useState<boolean>(false);
+    const [showLogin, setShowLogin] = useState<boolean>(false);
+
 
     const value = {
         user,
-        setUser
+        setUser,
+        showLogin,
+        setShowLogin
     };
 
     return (
