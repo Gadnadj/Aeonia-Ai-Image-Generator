@@ -6,10 +6,9 @@ import BuyCredit from './pages/BuyCredit';
 import NavBar from './components/NavBar';
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
-    <div className='px-4 sm:px-10 md:px-14 lg:px-28 min-h-screen bg-gradient-to-b frm-teal-50 to-orange-50'>
+    <div className='min-h-screen bg-gradient-to-b from-teal-50 to-orange-100'>
       <NavBar />
       <Routes>
         <Route path='/' element={<Home />} />

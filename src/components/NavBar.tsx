@@ -2,25 +2,25 @@ import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/logo_icon.svg';
 import CreditStar from '../assets/credit_star.svg';
 import ProfileIcon from '../assets/profile_icon.png';
-
-
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AppContext } from '../context/AppContext';
 
 const NavBar = () => {
 
-    const [user, setUser] = useState<boolean>(false);
+    const { user } = useContext(AppContext);
     const navigate = useNavigate();
 
     return (
-        <div className='flex items-center justify-between py-4'>
-            <Link to='/'>
+        <div className='flex items-center justify-between py-4 bg-orange-50 px-4 sm:px-10 md:px-14 lg:px-28 '>
+            <Link to='/' className='flex items-center gap-3'>
                 <img src={Logo} alt="w-28 sm:w-32 lg:w-40" />
+                <p className='font-Outfit text-3xl'>Aeonia</p>
             </Link>
 
             <div>
                 {user ?
                     <div className='flex items-center gap-2 sm:gap-3'>
-                        <button className='flex items-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700'>
+                        <button onClick={() => navigate('/buy-credit')} className='flex items-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700'>
                             <img className='w-5' src={CreditStar} alt="" />
                             <p className='text-xs sm:text-sm font-medium text-gray-600'>Credit left : 50</p>
                         </button>
