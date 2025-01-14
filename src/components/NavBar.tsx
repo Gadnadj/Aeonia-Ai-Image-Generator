@@ -11,7 +11,7 @@ const NavBar = () => {
     const navigate = useNavigate();
 
     return (
-        <div className='flex items-center justify-between py-4 bg-orange-50 px-4 sm:px-10 md:px-14 lg:px-28 '>
+        <div className='flex items-center justify-between py-4 bg-orange-100 px-4 sm:px-10 md:px-14 lg:px-28 '>
             <Link to='/' className='flex items-center gap-3'>
                 <img src={Logo} alt="w-28 sm:w-32 lg:w-40" />
                 <p className='font-Outfit text-3xl'>Aeonia</p>
