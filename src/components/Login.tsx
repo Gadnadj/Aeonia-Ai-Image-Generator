@@ -20,8 +20,8 @@ const Login = () => {
     return (
         <div className='fixed top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center'>
             <motion.form
-                initial={{ opacity: 0.2, y: 100 }}
-                transition={{ duration: 1 }}
+                initial={{ opacity: 0.2, y: 50 }}
+                transition={{ duration: 0.6 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className='relative bg-white p-10 rounded-xl text-slate-500'>

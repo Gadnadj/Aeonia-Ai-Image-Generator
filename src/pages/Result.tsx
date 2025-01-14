@@ -1,6 +1,8 @@
 import { FormEvent, ReactElement, useState } from 'react';
 import { assets } from '../assets/assets';
 import { FormEncType } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
 
 const Result = () => {
 
@@ -16,7 +18,12 @@ const Result = () => {
     console.log(input);
 
     return (
-        <form onSubmit={onSubmitHandler} className='flex flex-col min-h-[80.5vh] justify-center items-center'>
+        <motion.form
+            initial={{ opacity: 0.2, y: 100 }}
+            transition={{ duration: 1 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            onSubmit={onSubmitHandler} className='flex flex-col min-h-[80.5vh] justify-center items-center'>
             <div>
                 <div className='relative'>
                     <img className='max-w-sm rounded'
@@ -59,7 +66,7 @@ const Result = () => {
                     </a>
                 </div>
             )}
-        </form>
+        </motion.form>
     );
 };
 
