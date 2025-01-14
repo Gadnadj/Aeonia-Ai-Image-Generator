@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { assets, plans } from '../assets/assets';
 import { AppContext } from '../context/AppContext';
 
-type Props = {}
 
-const BuyCredit = (props: Props) => {
+
+const BuyCredit = () => {
 
     const { user } = useContext(AppContext);
     // min-h-[80.3vh] text-center pt-14 b-10 px-28

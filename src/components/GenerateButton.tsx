@@ -1,9 +1,10 @@
-import React from 'react';
 import { assets } from '../assets/assets';
+
 
 type Props = {}
 
 const GenerateButton = (props: Props) => {
+
     return (
         <div className='pb-16 text-center'>
             <h1 className='text-2xl md:text-3xl lg:text-4xl mt-4 font-semibold text-neutral-800 py-6 md:py-16'>
