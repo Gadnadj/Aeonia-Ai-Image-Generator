@@ -1,4 +1,4 @@
-# 🌟 [Aeonia Image Generator]
+# 🌟 [Aeonia Image Generator with AI]
 
 Aeonia Image Generator is a modern web application that allows users to generate images from custom prompts. This project uses React, TypeScript, Tailwind CSS, and an Express backend with MongoDB to manage users and generate images through an external API.
 
