@@ -34,7 +34,7 @@ const Result = () => {
             transition={{ duration: 1 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            onSubmit={onSubmitHandler} className='flex flex-col min-h-[80.5vh] justify-center items-center'>
+            onSubmit={onSubmitHandler} className='flex flex-col min-h-[79.7vh] justify-center items-center'>
             <div>
                 <div className='relative'>
                     <img className='max-w-sm rounded'
