@@ -1,13 +1,29 @@
-import { useContext, useEffect, useState } from 'react';
+import { FormEvent, useContext, useEffect, useState } from 'react';
 import { assets } from '../assets/assets';
 import { AppContext } from '../context/AppContext';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 
 
 const Login = () => {
 
     const [state, setState] = useState<string>('Login');
-    const { setShowLogin } = useContext(AppContext);
+    const { setShowLogin, backendUrl } = useContext(AppContext);
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+
+    const onSubmitHandler = async (e: FormEvent) => {
+        e.preventDefault();
+        try {
+            if (state === 'Login') {
+                await axios.post('');
+            }
+
+        } catch (error) {
+
+        }
+    };
 
     useEffect(() => {
         document.body.style.overflow = 'hidden';
@@ -24,7 +40,9 @@ const Login = () => {
                 transition={{ duration: 0.6 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className='relative bg-white p-10 rounded-xl text-slate-500'>
+                className='relative bg-white p-10 rounded-xl text-slate-500'
+                onSubmit={onSubmitHandler}
+            >
                 <h1 className='text-center text-2xl text-neutral-700 font-medium'>{state}</h1>
                 <p className='text-sm text-center'>
                     {state === 'Login' ? 'Welcome back! Please sign in to continue' : 'Welcome in our website'}
@@ -37,6 +55,8 @@ const Login = () => {
                             type="text"
                             placeholder='Full Name'
                             required
+                            onChange={(e) => setName(e.target.value)}
+                            value={name}
                         />
                     </div>
                 )}
@@ -47,6 +67,8 @@ const Login = () => {
                         type="email"
                         placeholder='Email'
                         required
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
                     />
                 </div>
 
@@ -56,6 +78,8 @@ const Login = () => {
                         type="password"
                         placeholder='Password'
                         required
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
                     />
                 </div>
 
