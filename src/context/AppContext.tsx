@@ -3,6 +3,7 @@ import { AppContextProviderProps } from '../types';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { user } from '../types';
+import { useNavigate } from 'react-router-dom';
 
 export const AppContext = createContext<{
     user: user | null;
@@ -16,6 +17,7 @@ export const AppContext = createContext<{
     backendUrl: string;
     loadCreditsData: () => void;
     logout: () => void;
+    generateImage: (prompt: string) => {};
 }>({
     user: null,
     setUser: () => { },
@@ -27,7 +29,8 @@ export const AppContext = createContext<{
     setCredit: () => { },
     backendUrl: '',
     loadCreditsData: () => { },
-    logout: () => { }
+    logout: () => { },
+    generateImage: async (prompt: string) => ({})
 });
 
 const AppContextProvider = (props: AppContextProviderProps) => {
@@ -47,6 +50,36 @@ const AppContextProvider = (props: AppContextProviderProps) => {
             if (data.success) {
                 setCredit(data.credits);
                 setUser(data.user);
+            }
+        }
+
+        catch (error) {
+            console.log(error);
+            if (error instanceof Error) {
+                toast.error(error.message);
+            } else {
+                toast.error('An unknown error occurred');
+            }
+        }
+    };
+
+    const navigate = useNavigate();
+
+    const generateImage = async (prompt: string) => {
+        try {
+            const { data } = await axios.post(backendUrl + '/api/image/generate-image', { prompt }, { headers: { token } });
+
+            if (data.success) {
+                loadCreditsData();
+                return data.resultImage;
+            }
+
+            else {
+                toast.error(data.message);
+                loadCreditsData();
+                if (data.creditBalance === 0) {
+                    navigate('/buy-credit');
+                }
             }
         }
 
@@ -83,7 +116,8 @@ const AppContextProvider = (props: AppContextProviderProps) => {
         credit,
         setCredit,
         loadCreditsData,
-        logout
+        logout,
+        generateImage
     };
     return (
         <AppContext.Provider value={value}>

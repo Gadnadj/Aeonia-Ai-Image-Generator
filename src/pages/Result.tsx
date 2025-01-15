@@ -1,18 +1,30 @@
-import { FormEvent, ReactElement, useState } from 'react';
+import { FormEvent, ReactElement, useContext, useState } from 'react';
 import { assets } from '../assets/assets';
 import { FormEncType } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { AppContext } from '../context/AppContext';
 
 
 const Result = () => {
 
-    const [image, setImage] = useState<string>(assets.sample_img_1);
+    const [image, setImage] = useState<Object>(assets.sample_img_1);
     const [isImageLoaded, setIsImageLoaded] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
     const [input, setInput] = useState<string>('');
+    const { generateImage } = useContext(AppContext);
 
     const onSubmitHandler = async (e: FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
 
+        if (input) {
+            const image = await generateImage(input);
+            if (image) {
+                setIsImageLoaded(true);
+                setImage(image);
+            }
+        }
+        setLoading(false);
     };
 
     console.log(input);
@@ -27,7 +39,7 @@ const Result = () => {
             <div>
                 <div className='relative'>
                     <img className='max-w-sm rounded'
-                        src={image} alt="" />
+                        src={image.toString()} alt="" />
                     <span className={`absolute botton-0 left-0 h-1 bg-blue-500 
                         ${loading ? ' w-full transition-all duration-[10s]' : 'w-0'}`} />
                 </div>
@@ -61,7 +73,7 @@ const Result = () => {
                     <a
                         download
                         className='bg-zinc-900 px-10 py-3 rounded-full cursor-pointer'
-                        href={image}>
+                        href={image.toString()}>
                         Download
                     </a>
                 </div>
