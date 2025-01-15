@@ -45,9 +45,13 @@ const Login = () => {
                     toast.error(data.message);
                 }
             }
-
+            
         } catch (error) {
-
+            if (axios.isAxiosError(error) && error.response) {
+                toast.error(error.response.data.message);
+            } else {
+                toast.error('An unexpected error occurred');
+            }
         }
     };
 
