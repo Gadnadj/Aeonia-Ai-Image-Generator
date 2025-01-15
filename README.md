@@ -84,6 +84,10 @@ Aeonia Image Generator is a modern web application that allows users to generate
 
 In the project directory, you can run:
 
+
 npm run dev: Start the development server.
+
 npm run build: Build the project for production.
+
 npm run preview: Preview the production build.
+
