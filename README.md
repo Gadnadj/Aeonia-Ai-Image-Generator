@@ -18,11 +18,17 @@ Aeonia Image Generator is a modern web application that allows users to generate
 ## 🚀 **Features**
 
 🖼️ Image Generation: Users can generate images from custom prompts using an external image generation API.
+
 👤 User Management: Create and manage user accounts with a credit balance for generating images.
+
 💳 Image Credits: Users can use credits to generate images, with credits deducted after each generation.
+
 📥 Download Images: Users can download the generated images directly to their device.
+
 🌍 Responsive Design: Optimized for all devices and screen sizes.
+
 🔐 Authentication: Secure user authentication using JWT tokens.
+
 🖱️ Interactive UI: Smooth animations and a user-friendly interface for an enjoyable experience.
 
 ---
