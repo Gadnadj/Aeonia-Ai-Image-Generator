@@ -1,9 +1,6 @@
-import React from 'react';
 import { assets } from '../assets/assets';
 
-type Props = {}
-
-const Footer = (props: Props) => {
+const Footer = () => {
     return (
         <div className='flex items-center justify-between gap-4 py-3 mt-20 px-4 sm:px-10 md:px-14 lg:px-28 bg-teal-50'>
             <img src={assets.logo_icon} width={30} />

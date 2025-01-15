@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/logo_icon.svg';
 import CreditStar from '../assets/credit_star.svg';
 import ProfileIcon from '../assets/profile_icon.png';
-import { useContext, useState } from 'react';
+import { useContext} from 'react';
 import { AppContext } from '../context/AppContext';
 
 const NavBar = () => {

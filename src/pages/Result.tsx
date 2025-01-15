@@ -1,6 +1,5 @@
-import { FormEvent, ReactElement, useContext, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import { assets } from '../assets/assets';
-import { FormEncType } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { AppContext } from '../context/AppContext';
 

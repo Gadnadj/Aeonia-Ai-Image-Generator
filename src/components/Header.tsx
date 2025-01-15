@@ -4,11 +4,7 @@ import { motion } from 'motion/react';
 import { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
-
-
-type Props = {}
-
-const Header = (props: Props) => {
+const Header = () => {
 
     const navigate = useNavigate();
     const { user, setShowLogin } = useContext(AppContext);
@@ -69,7 +65,7 @@ const Header = (props: Props) => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 1 }}
             >
-                {Array(6).fill('').map((item, index) => (
+                {Array(6).fill('').map((_, index) => (
                     <motion.img
                         whileHover={{ scale: 1.25 }}
                         transition={{ duration: 0.0 }}

@@ -1,8 +1,6 @@
 import { assets, testimonialsData } from '../assets/assets';
 import { motion } from 'framer-motion';
 
-type Props = {}
-
 const Testimonials = () => {
     return (
         <motion.div
@@ -29,7 +27,7 @@ const Testimonials = () => {
                             <p className='text-gray-500 mb-4'>{testimonial.role}</p>
 
                             <div className='flex mb-4'>
-                                {Array(testimonial.stars).fill('').map((item, index) => (
+                                {Array(testimonial.stars).fill('').map((_, index) => (
                                     <img
                                         key={index} src={assets.rating_star} alt="" />
                                 ))}

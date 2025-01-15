@@ -5,6 +5,7 @@ import axios from 'axios';
 import { user } from '../types';
 import { useNavigate } from 'react-router-dom';
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const AppContext = createContext<{
     user: user | null;
     setUser: (user: user | null) => void;
@@ -30,7 +31,7 @@ export const AppContext = createContext<{
     backendUrl: '',
     loadCreditsData: () => { },
     logout: () => { },
-    generateImage: async (prompt: string) => ({})
+    generateImage: async (_prompt: string) => ({})
 });
 
 const AppContextProvider = (props: AppContextProviderProps) => {
@@ -103,6 +104,7 @@ const AppContextProvider = (props: AppContextProviderProps) => {
         if (token) {
             loadCreditsData();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token]);
 
     const value = {
